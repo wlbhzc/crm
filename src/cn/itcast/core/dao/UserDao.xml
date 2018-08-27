@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.core.dao.UserDao" >
+  
+  	 <insert id="register" parameterType="cn.itcast.core.bean.User" >
+    insert into sys_user (userid, username, userpassword, userphone)
+    values (#{userid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, 
+     #{userpassword,jdbcType=VARCHAR}, #{userphone,jdbcType=VARCHAR}
+      )
+  </insert>
+	
+  <select id="login" resultType="cn.itcast.core.bean.User" parameterType="String">
+     
+     select * from sys_user where username = #{username}
+  
+  </select>
+
+</mapper>
